@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ChronosBuild — демонстраційний MVP для сценарної оцінки технічних ризиків квартири та візуального позначення зон для перевірки.">
+<title>ChronosBuild — оцінка та сценарний прогноз квартири</title>
+<style>
+:root{--navy:#073b49;--teal:#087f83;--mint:#dff5f1;--ink:#16323b;--muted:#61777d;--line:#d9e8e7;--bg:#f3f8f8;--white:#fff;--gold:#e6a63a;--red:#c65b4d;--green:#16836f;--shadow:0 16px 40px #0c455012}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}header{background:linear-gradient(115deg,#063a48,#087d7d);color:white;padding:22px max(22px,calc((100vw - 1160px)/2));position:relative;overflow:hidden}header:after{content:"";position:absolute;width:360px;height:240px;border:1px solid #ffffff25;border-radius:50%;right:-90px;top:-120px;box-shadow:0 0 0 28px #ffffff08,0 0 0 58px #ffffff06}.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:22px;letter-spacing:.2px}.logo{width:38px;height:38px;border:2px solid #a8eee2;border-radius:11px;display:grid;place-items:center;font-size:22px}.tagline{color:#c4e8e5;font-size:13px;margin:4px 0 0 51px}main{max-width:1160px;margin:34px auto;padding:0 22px}.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:25px;align-items:center;margin-bottom:26px}.eyebrow{color:var(--teal);font-weight:750;text-transform:uppercase;letter-spacing:1.2px;font-size:12px}.hero h1{font-size:clamp(30px,4vw,48px);line-height:1.08;letter-spacing:-1.5px;margin:9px 0 13px;color:var(--navy)}.hero p{color:var(--muted);font-size:16px;max-width:660px;margin:0}.hero-card{background:linear-gradient(135deg,#e1f5f1,#fff);border:1px solid #d2e9e5;border-radius:22px;padding:22px;box-shadow:var(--shadow)}.hero-card strong{display:block;font-size:15px;color:var(--navy);margin-bottom:6px}.hero-card span{color:var(--muted);font-size:13px}.steps{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}.step{background:#fff;border:1px solid var(--line);padding:7px 10px;border-radius:999px;font-size:12px;color:var(--teal);font-weight:700}.layout{display:grid;grid-template-columns:1.02fr .98fr;gap:22px;align-items:start}.panel{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow)}.panel h2{font-size:21px;margin:0 0 5px;color:var(--navy)}.sub{font-size:13px;color:var(--muted);margin:0 0 20px}.section-label{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--teal);font-weight:800;margin:19px 0 10px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field{display:flex;flex-direction:column;gap:5px}.field.full{grid-column:1/-1}label{font-size:13px;font-weight:700;color:#36535a}input,select{width:100%;border:1px solid #cddfdf;background:#fbfdfd;border-radius:10px;padding:11px 12px;font:inherit;color:var(--ink);outline:none}input:focus,select:focus{border-color:var(--teal);box-shadow:0 0 0 3px #087f8318}.hint{font-size:11px;color:#819398}.btn{border:0;border-radius:12px;background:linear-gradient(100deg,#087f83,#0b9a91);color:white;font-weight:800;padding:13px 18px;font-size:15px;cursor:pointer;width:100%;margin-top:20px;box-shadow:0 8px 18px #087f8328}.btn:hover{filter:brightness(1.05);transform:translateY(-1px)}.result-placeholder{border:1px dashed #b9d5d2;border-radius:15px;padding:28px 20px;text-align:center;color:var(--muted);background:#f9fcfc}.placeholder-icon{font-size:34px;margin-bottom:7px}.result{display:none}.result-top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:16px}.status{font-size:12px;font-weight:800;padding:6px 10px;border-radius:999px;background:#e3f4ef;color:var(--green)}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px}.metric{padding:15px;border-radius:14px;background:#f3f9f8;border:1px solid #e1efed}.metric small{display:block;color:var(--muted);font-size:11px;margin-bottom:5px}.metric strong{font-size:24px;color:var(--navy);letter-spacing:-.5px}.metric em{font-style:normal;font-size:11px;color:var(--muted)}.risk{margin-top:13px;padding:15px;border-radius:14px;border-left:4px solid var(--gold);background:#fff9ed}.risk.high{border-color:var(--red);background:#fff4f1}.risk.low{border-color:var(--green);background:#eff9f5}.risk strong{display:block;margin-bottom:4px}.report-title{margin:19px 0 8px;font-weight:800;color:var(--navy)}.recommendations{padding-left:19px;margin:8px 0;color:#425e64;font-size:13px}.recommendations li{margin:6px 0}.bar-wrap{height:9px;background:#e5eeee;border-radius:99px;overflow:hidden;margin:9px 0 4px}.bar{height:100%;width:0;background:linear-gradient(90deg,#20a68d,#e4b24f);border-radius:99px}.fineprint{font-size:11px;color:#819398;margin-top:17px;padding-top:13px;border-top:1px solid var(--line)}.footer{max-width:1160px;margin:22px auto 40px;padding:0 22px;color:#829397;font-size:12px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.footer b{color:var(--teal)}
+.upload-box{border:1px dashed #a9ceca;background:#f7fbfa;border-radius:14px;padding:14px}.upload-box input{background:#fff}.media-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.preview{position:relative;min-height:100px;background:#edf5f4;border:1px solid var(--line);border-radius:12px;overflow:hidden;display:grid;place-items:center;color:var(--muted);font-size:12px;text-align:center}.preview img,.preview video{display:block;width:100%;max-height:260px;object-fit:contain;background:#eaf1f0}.preview canvas{max-width:100%;height:auto;cursor:crosshair;display:block}.media-note{font-size:11px;color:var(--muted);margin:8px 0 0}.chip-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.chip{border:1px solid #cfe2df;background:white;color:var(--teal);border-radius:999px;padding:6px 9px;font-size:12px;cursor:pointer}.chip.active{background:#dff5f1;border-color:var(--teal);font-weight:800}.forecast{margin-top:14px;border:1px solid #d6e9e6;border-radius:14px;padding:15px;background:#f4fbf9}.forecast h3{margin:0 0 8px;color:var(--navy);font-size:16px}.forecast-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.forecast-card{background:white;border:1px solid #e1efed;border-radius:11px;padding:11px}.forecast-card small{display:block;color:var(--muted)}.forecast-card strong{font-size:21px;color:var(--navy)}.warning-note{font-size:11px;color:#805b24;background:#fff8e9;border-radius:10px;padding:10px;margin-top:10px}.tag{display:inline-block;padding:4px 8px;border-radius:999px;background:#e7f4f2;color:var(--teal);font-size:11px;font-weight:800}
+@media(max-width:520px){.media-grid,.forecast-grid{grid-template-columns:1fr}}
+@media(max-width:850px){.hero,.layout{grid-template-columns:1fr}.hero-card{order:2}}@media(max-width:520px){main{margin-top:23px}.panel{padding:18px}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.hero h1{font-size:34px}.metrics{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo">⌂</div>ChronosBuild</div><div class="tagline">Розумніша оцінка нерухомості починається з даних</div></header>
+<main>
+<section class="hero"><div><div class="eyebrow">Демонстраційний MVP · Версія 0.1</div><h1>Перевірте технічні ризики квартири до купівлі</h1><p>Внесіть характеристики житла, врахуйте поверх і зовнішні умови, задайте горизонт прогнозу та позначте на фото ділянки, які варто перевірити. ChronosBuild сформує попередню сценарну оцінку ризиків.</p></div><div class="hero-card"><strong>Як це працює</strong><span>П'ять простих кроків від характеристик квартири до зрозумілого попереднього звіту.</span><div class="steps"><span class="step">01 Дані</span><span class="step">02 Фактори</span><span class="step">03 Сценарій</span><span class="step">04 Звіт</span></div></div></section>
+<div class="layout">
+<section class="panel"><h2>Параметри квартири</h2><p class="sub">Заповніть поля. Якщо точне значення невідоме, використайте орієнтовне.</p>
+<form id="calcForm">
+<div class="section-label">Об'єкт</div><div class="fields">
+<div class="field"><label for="area">Площа квартири, м²</label><input id="area" type="number" min="10" max="500" value="65" required></div>
+<div class="field"><label for="wallArea">Зовнішня площа стін, м²</label><input id="wallArea" type="number" min="5" max="300" value="28" required><span class="hint">Орієнтовна площа стін, що контактують із вулицею</span></div>
+<div class="field"><label for="wall">Матеріал / тип стіни</label><select id="wall"><option value="1.4">Цегла без утеплення</option><option value="1.8">Залізобетонна панель</option><option value="0.8">Газоблок без додаткового утеплення</option><option value="0.45">Утеплена стіна</option><option value="1.1">Інше / невідомо</option></select></div>
+<div class="field"><label for="insulation">Стан утеплення</label><select id="insulation"><option value="0">Немає / невідоме</option><option value="0.72">Часткове</option><option value="0.42">Якісне зовнішнє утеплення</option></select></div>
+</div>
+<div class="section-label">Розташування та зовнішні фактори</div><div class="fields">
+<div class="field"><label for="floor">Поверх квартири</label><input id="floor" type="number" min="1" max="80" value="5" required></div>
+<div class="field"><label for="floors">Загальна кількість поверхів</label><input id="floors" type="number" min="1" max="100" value="9" required></div>
+<div class="field"><label for="position">Розташування квартири</label><select id="position"><option value="0">Внутрішня (не кутова)</option><option value="1">Кутова</option><option value="0.5">Дві зовнішні стіни</option></select></div>
+<div class="field"><label for="orientation">Орієнтація основної зовнішньої стіни</label><select id="orientation"><option value="0.15">Північ</option><option value="0.08">Північний схід / північний захід</option><option value="0">Схід / захід</option><option value="-0.05">Південь</option><option value="0.05">Невідомо</option></select></div>
+<div class="field"><label for="wind">Вітрове навантаження</label><select id="wind"><option value="0">Звичайне / захищене розташування</option><option value="0.12">Відкрита місцевість, сильний вітер</option><option value="0.06">Помірно відкрите</option></select></div>
+<div class="field"><label for="buildingAge">Вік будинку</label><select id="buildingAge"><option value="0">До 10 років</option><option value="0.04">10–25 років</option><option value="0.08">Понад 25 років</option><option value="0.05">Невідомо</option></select></div>
+</div>
+<div class="section-label">Умови експлуатації</div><div class="fields">
+<div class="field"><label for="inside">Температура в приміщенні, °C</label><input id="inside" type="number" min="5" max="35" value="21" step="0.5" required></div>
+<div class="field"><label for="outside">Зовнішня температура, °C</label><input id="outside" type="number" min="-35" max="20" value="-5" step="0.5" required></div>
+<div class="field"><label for="humidity">Відносна вологість, %</label><input id="humidity" type="number" min="20" max="95" value="60" required></div>
+<div class="field"><label for="ventilation">Вентиляція</label><select id="ventilation"><option value="1">Нормальна</option><option value="1.12">Недостатня</option><option value="0.94">Добра / регулярне провітрювання</option><option value="1.06">Невідомо</option></select></div>
+</div>
+<div class="section-label">Сценарний прогноз</div><div class="fields">
+<div class="field"><label for="years">Горизонт прогнозування, років</label><input id="years" type="number" min="1" max="10" value="5" required><span class="hint">Сценарна оцінка до 10 років, не гарантія майбутнього стану.</span></div>
+<div class="field"><label for="moistureHistory">Історія проблем із вологою</label><select id="moistureHistory"><option value="0">Не помічали</option><option value="8">Іноді з'являється волога / конденсат</option><option value="16">Є плями, цвіль або повторювані протікання</option><option value="5">Невідомо</option></select></div>
+</div>
+<div class="section-label">Фото або відео приміщення (необов'язково)</div>
+<div class="upload-box"><div class="media-grid">
+<div class="field"><label for="photoInput">Завантажити фото</label><input id="photoInput" type="file" accept="image/*"><div class="preview" id="photoPreview">Попередній перегляд фото з'явиться тут</div><p class="media-note">Натискайте на фото, щоб вручну позначити місця, які потребують перевірки (кути, відкоси, стики, плями вологи).</p><div class="chip-row"><button class="chip" type="button" id="clearMarks">Очистити позначки</button><span class="tag" id="markCount">Позначено: 0</span></div></div>
+<div class="field"><label for="videoInput">Завантажити відео</label><input id="videoInput" type="file" accept="video/*"><div class="preview" id="videoPreview">Попередній перегляд відео з'явиться тут</div><p class="media-note">Відео можна переглянути в прототипі. Автоматичний аналіз кадрів не реалізований.</p></div>
+</div><p class="media-note">Файли обробляються лише у вашому браузері й не надсилаються на сервер. Після завантаження фото запускається експериментальний візуальний скринінг за кольором і локальним контрастом. Це не навчена ШІ-модель і не підтверджує наявність дефекту; відео автоматично не аналізується.</p></div>
+<button class="btn" type="submit">Розрахувати та сформувати звіт&nbsp; →</button>
+</form></section>
+<section class="panel"><div class="result-placeholder" id="placeholder"><div class="placeholder-icon">⌂</div><strong>Ваш звіт з'явиться тут</strong><p>Введіть параметри квартири та натисніть «Розрахувати».</p></div>
+<div class="result" id="result"><div class="result-top"><div><h2>Попередній звіт</h2><p class="sub" style="margin:3px 0 0">Результат розрахунку за введеними параметрами</p></div><span class="status">Аналіз готовий</span></div>
+<div class="metrics"><div class="metric"><small>Орієнтовні тепловтрати крізь стіни</small><strong id="loss">—</strong><em>Вт за заданої різниці температур</em></div><div class="metric"><small>Орієнтовний коефіцієнт теплопередачі U</small><strong id="uval">—</strong><em>Вт/(м²·К)</em></div><div class="metric"><small>Точка роси в приміщенні</small><strong id="dew">—</strong><em>°C · за температурою та вологістю</em></div><div class="metric"><small>Температура внутрішньої поверхні стіни</small><strong id="surface">—</strong><em>°C · спрощена оцінка</em></div></div>
+<div class="risk" id="risk"><strong id="riskTitle">Оцінка ризику</strong><span id="riskText"></span><div class="bar-wrap"><div class="bar" id="riskBar"></div></div></div>
+<div class="forecast" id="forecast"><h3>Сценарний прогноз на <span id="forecastYears">—</span> років</h3><div class="forecast-grid"><div class="forecast-card"><small>Поточний індекс ризику</small><strong id="currentScore">—</strong><small>умовна шкала 0–100</small></div><div class="forecast-card"><small>Сценарний індекс через заданий період</small><strong id="futureScore">—</strong><small id="futureLevel">—</small></div></div><p id="forecastText" class="sub" style="margin:10px 0 0"></p><div class="warning-note">Це сценарна модель для навчального MVP: вона показує, як ризик може змінюватися за умов збереження заданих факторів. Вона не прогнозує фактичне руйнування конструкцій і не враховує всі ремонти, аварії, зміни погоди чи режиму експлуатації.</div></div>
+<div class="report-title">Результат візуального скринінгу фото</div><p class="sub" id="autoSummary">Фото не завантажено або скринінг ще не виконано.</p><ul class="recommendations" id="autoFindingsList"></ul><div class="report-title">Позначені вручну ділянки</div><p class="sub" id="markedSummary">Фото не завантажено або ризикові зони не позначені.</p><div class="report-title">Рекомендації</div><ul class="recommendations" id="recommendations"></ul>
+<div class="fineprint">Це демонстраційний розрахунок MVP із наближеними значеннями та типовими припущеннями. Він не враховує всі конструктивні вузли, містки холоду, фактичний склад шарів, режим опалення та повітрообмін. Результат не є технічним висновком і не замінює огляд інженера або тепловізійне обстеження.</div>
+</div></section></div></main>
+<div class="footer"><span><b>ChronosBuild</b> · Попередня оцінка технічних ризиків нерухомості</span><span>Навчальний прототип · MVP 0.2</span></div>
+<script>
+const $=id=>document.getElementById(id);
+function dewPoint(t,rh){const a=17.62,b=243.12;const g=Math.log(rh/100)+a*t/(b+t);return b*g/(a-g)}
+let photo=null, marks=[], autoFindings=[];
+function updateMarks(){ $('markCount').textContent='Позначено: '+marks.length; }
+$('photoInput').addEventListener('change',e=>{
+ const f=e.target.files?.[0]; if(!f)return; if(photo?.url)URL.revokeObjectURL(photo.url); const url=URL.createObjectURL(f); photo={url,name:f.name}; marks=[];
+ const img=new Image(); img.onload=()=>{const box=$('photoPreview');box.innerHTML='';const canvas=document.createElement('canvas');const maxW=520,scale=Math.min(1,maxW/img.width);canvas.width=Math.round(img.width*scale);canvas.height=Math.round(img.height*scale);const ctx=canvas.getContext('2d');ctx.drawImage(img,0,0,canvas.width,canvas.height);photo.canvas=canvas;photo.img=img;photo.scale=scale;box.appendChild(canvas);autoFindings=scanImage(canvas);drawMarks();updateMarks();};img.src=url;updateMarks();
+});
+function scanImage(canvas){
+ // Експериментальний браузерний скринінг: колірні евристики, НЕ ML/ШІ-діагностика.
+ const ctx=canvas.getContext('2d',{willReadFrequently:true}),w=canvas.width,h=canvas.height;
+ const data=ctx.getImageData(0,0,w,h).data, step=24, cols=Math.ceil(w/step), rows=Math.ceil(h/step), cells=[];
+ for(let gy=0;gy<rows;gy++)for(let gx=0;gx<cols;gx++){
+  let dark=0,mold=0,stain=0,n=0;
+  for(let y=gy*step;y<Math.min(h,(gy+1)*step);y+=2)for(let x=gx*step;x<Math.min(w,(gx+1)*step);x+=2){
+   const i=(y*w+x)*4,r=data[i],g=data[i+1],b=data[i+2],max=Math.max(r,g,b),min=Math.min(r,g,b),lum=(r+g+b)/3;
+   n++;if(lum<92)dark++;
+   if(lum<112 && (g>=r*0.78) && (g>=b*0.82) && (Math.abs(r-g)<48))mold++;
+   if(r>90&&r<205&&g>48&&g<165&&b<125&&r>g*1.12&&g>b*1.08)stain++;
+  }
+  const darkRatio=dark/n,moldRatio=mold/n,stainRatio=stain/n;
+  let type='',confidence=0;
+  if(moldRatio>.19 || (darkRatio>.34&&moldRatio>.11)){type='Темні/зеленуваті ділянки — можлива пліснява або тінь';confidence=Math.min(94,Math.round(48+moldRatio*120+darkRatio*22));}
+  else if(stainRatio>.24){type='Коричнюваті плями — можливі сліди вологи або забруднення';confidence=Math.min(88,Math.round(45+stainRatio*100));}
+  if(type)cells.push({gx,gy,type,confidence});
+ }
+ // Об'єднуємо сусідні клітинки одного типу в зони.
+ const seen=new Set(),groups=[];
+ cells.forEach(c=>{const key=c.gx+','+c.gy;if(seen.has(key))return;const q=[c],group=[];seen.add(key);
+  while(q.length){const a=q.pop();group.push(a);cells.forEach(b=>{const k=b.gx+','+b.gy;if(!seen.has(k)&&b.type===a.type&&Math.abs(a.gx-b.gx)<=1&&Math.abs(a.gy-b.gy)<=1){seen.add(k);q.push(b);}});}
+  if(group.length>=2){groups.push({type:c.type,confidence:Math.round(group.reduce((v,x)=>v+x.confidence,0)/group.length),x:Math.min(...group.map(x=>x.gx))*step,y:Math.min(...group.map(x=>x.gy))*step,w:(Math.max(...group.map(x=>x.gx))-Math.min(...group.map(x=>x.gx))+1)*step,h:(Math.max(...group.map(x=>x.gy))-Math.min(...group.map(x=>x.gy))+1)*step});}
+ });
+ return groups.slice(0,12);
+}
+function drawMarks(){if(!photo?.canvas)return;const c=photo.canvas,ctx=c.getContext('2d');ctx.drawImage(photo.img,0,0,c.width,c.height);
+ autoFindings.forEach((f,i)=>{ctx.strokeStyle='#d18a19';ctx.lineWidth=3;ctx.setLineDash([7,4]);ctx.strokeRect(f.x,f.y,Math.min(f.w,c.width-f.x),Math.min(f.h,c.height-f.y));ctx.setLineDash([]);ctx.fillStyle='rgba(238,174,54,.16)';ctx.fillRect(f.x,f.y,Math.min(f.w,c.width-f.x),Math.min(f.h,c.height-f.y));});
+ marks.forEach((m,i)=>{const x=m.x*c.width,y=m.y*c.height;ctx.beginPath();ctx.arc(x,y,13,0,Math.PI*2);ctx.fillStyle='rgba(224,91,64,.22)';ctx.fill();ctx.lineWidth=3;ctx.strokeStyle='#d64f3e';ctx.stroke();ctx.fillStyle='#7d2017';ctx.font='bold 12px sans-serif';ctx.fillText(String(i+1),x+17,y-10);});
+}
+$('photoPreview').addEventListener('click',e=>{if(!photo?.canvas||e.target!==photo.canvas)return;const r=photo.canvas.getBoundingClientRect();marks.push({x:(e.clientX-r.left)/r.width,y:(e.clientY-r.top)/r.height});drawMarks();updateMarks();});
+$('clearMarks').addEventListener('click',()=>{marks=[];drawMarks();updateMarks();});
+$('videoInput').addEventListener('change',e=>{const f=e.target.files?.[0];if(!f)return;const v=document.createElement('video');v.controls=true;v.preload='metadata';v.src=URL.createObjectURL(f);$('videoPreview').innerHTML='';$('videoPreview').appendChild(v);});
+function riskLevel(score){return score>=65?'Підвищений':score>=35?'Помірний':'Нижчий'}
+$('calcForm').addEventListener('submit',e=>{e.preventDefault();
+const area=+$('area').value, wallArea=+$('wallArea').value, ti=+$('inside').value,to=+$('outside').value,rh=+$('humidity').value;
+const baseU=+$('wall').value, insulation=+$('insulation').value, vent=+$('ventilation').value;
+const floor=+$('floor').value,floors=+$('floors').value,position=+$('position').value,orientation=+$('orientation').value,wind=+$('wind').value,age=+$('buildingAge').value,years=+$('years').value,moisture=+$('moistureHistory').value;
+if(![area,wallArea,ti,to,rh,floor,floors,years].every(Number.isFinite)||area<=0||wallArea<=0||rh<=0||rh>=100||floor<1||floors<floor||years<1||years>10){alert('Перевірте введені значення: поверх не може перевищувати загальну кількість поверхів, а горизонт прогнозу має бути від 1 до 10 років.');return;}
+// Heuristic exposure adjustments are illustrative assumptions for this educational prototype, not validated engineering coefficients.
+const topOrGround=(floor===1||floor===floors)?0.08:0;
+const exposure=1+position+orientation+wind+age+topOrGround;
+const U=baseU*insulation*exposure;
+const delta=Math.max(0,ti-to),loss=U*wallArea*delta,dew=dewPoint(ti,rh);
+const surface=ti-U*0.13*delta,margin=surface-dew;
+let score=Math.max(0,Math.min(100,Math.round((1.5-margin)*22+(rh-50)*0.65+(vent-1)*28+position*9+wind*12+age*10+topOrGround*12+moisture)));
+let title,txt,klass;if(score>=65||margin<1.5||rh>=75){title='Підвищений ризик';txt='За введеними даними є чинники, що можуть сприяти конденсації або локальному охолодженню поверхонь. Потрібна додаткова перевірка.';klass='high'}else if(score>=35||margin<4||rh>=65){title='Помірний ризик';txt='Є фактори, які варто перевірити: вентиляцію, утеплення, зовнішні кути та стики конструкцій.';klass=''}else{title='Нижчий розрахунковий ризик';txt='За введеними параметрами ризик нижчий, але локальні містки холоду чи приховані дефекти не виключені.';klass='low'}
+const annualDrift=1.2+age*8+wind*7+position*5+(moisture>0?0.8:0);const futureScore=Math.max(0,Math.min(100,Math.round(score+annualDrift*years)));const futureLevel=riskLevel(futureScore);
+$('loss').textContent=Math.round(loss).toLocaleString('uk-UA');$('uval').textContent=U.toFixed(2);$('dew').textContent=dew.toFixed(1);$('surface').textContent=surface.toFixed(1);
+$('riskTitle').textContent=title;$('riskText').textContent=txt;$('risk').className='risk '+klass;$('riskBar').style.width=score+'%';
+$('forecastYears').textContent=years;$('currentScore').textContent=score+'/100';$('futureScore').textContent=futureScore+'/100';$('futureLevel').textContent=futureLevel+' сценарний рівень';$('forecastText').textContent=`За умов незмінних параметрів модель додає умовний ризиковий бал з урахуванням віку будинку, відкритості до вітру, кутового розташування та історії вологи. Це порівняння сценаріїв, а не точний прогноз фізичного стану квартири.`;
+$('markedSummary').textContent=photo?`Фото «${photo.name}»: вручну позначено ${marks.length} ділянок.`:'Фото не завантажено або ризикові зони не позначені.';
+$('autoSummary').textContent=photo?`Експериментальний скринінг: знайдено ${autoFindings.length} потенційних зон для перевірки. Рамки на фото позначені бурштиновим кольором.`:'Фото не завантажено або скринінг ще не виконано.';
+$('autoFindingsList').innerHTML=autoFindings.length?autoFindings.map((f,i)=>`<li>${f.type} · умовна впевненість евристики ${f.confidence}% (зона ${i+1}). Перевірте вручну.</li>`).join(''):'<li>Евристика не знайшла виразних кольорових зон. Це не виключає вологи, конденсату чи плісняви.</li>';
+const rec=[];if(rh>=60)rec.push('Перевірити роботу вентиляції та регулярно контролювати вологість у приміщенні.');if(U>0.9)rec.push('Уточнити склад і товщину стін та фактичний стан утеплення.');if(margin<4)rec.push('Окремо перевірити кути, відкоси, стики зовнішніх стін і зони за меблями.');if(floor===1||floor===floors)rec.push('Для першого або останнього поверху додатково перевірити підлогу над підвалом або перекриття/покрівлю відповідно.');if(position>0)rec.push('Для кутової квартири приділити увагу двом зовнішнім стінам і кутовим зонам.');if(marks.length)rec.push(`Під час огляду окремо перевірити ${marks.length} позначені на фото ділянки.`);rec.push('За наявності плям, запаху вологи або промерзання замовити огляд профільного інженера чи тепловізійне обстеження.');
+$('recommendations').innerHTML=rec.map(x=>'<li>'+x+'</li>').join('');$('placeholder').style.display='none';$('result').style.display='block';
+});
+</script>
+</body></html>
